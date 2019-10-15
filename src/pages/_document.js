@@ -1,17 +1,12 @@
 import { Fragment } from 'react';
 import flush from 'styled-jsx/server';
 import Document, { Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheets } from '@material-ui/styles';
 
 export default class CustomDocument extends Document {
   static async getInitialProps(context) {
-    const sheets = new ServerStyleSheets();
     const originalRenderPage = context.renderPage;
 
-    context.renderPage = () =>
-      originalRenderPage({
-        enhanceApp: App => props => sheets.collect(<App {...props} />),
-      });
+    context.renderPage = () => originalRenderPage();
 
     const props = await super.getInitialProps(context);
     const {
@@ -21,12 +16,7 @@ export default class CustomDocument extends Document {
     return {
       ...props,
       locale,
-      styles: (
-        <Fragment>
-          {sheets.getStyleElement()}
-          {flush() || null}
-        </Fragment>
-      ),
+      styles: <Fragment>{flush() || null}</Fragment>,
     };
   }
 

@@ -3,10 +3,6 @@ import { IntlProvider } from 'react-intl';
 import { Provider as StoreProvider } from 'react-redux';
 import App, { Container } from 'next/app';
 
-import { ThemeProvider } from '@material-ui/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '../assets/css/theme';
-
 import { onServer } from 'utils/on-server';
 import { AppLifecycle } from 'mechanisms/app-lifecycle';
 import { PageLifecycle } from 'mechanisms/page-lifecycle';
@@ -79,12 +75,9 @@ class CustomApp extends App {
     return (
       <Container>
         <IntlProvider locale={locale} messages={messages}>
-          <ThemeProvider theme={theme}>
-            <StoreProvider store={store}>
-              <CssBaseline />
-              <Page {...pageProps}/>
-            </StoreProvider>
-          </ThemeProvider>
+          <StoreProvider store={store}>
+            <Page {...pageProps} />
+          </StoreProvider>
         </IntlProvider>
       </Container>
     );
