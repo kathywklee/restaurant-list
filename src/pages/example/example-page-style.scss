@@ -1,0 +1,10 @@
+.section {
+  padding: var(--space-n);
+  margin-bottom: var(--space-n);
+
+  background: var(--c-shade-light);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

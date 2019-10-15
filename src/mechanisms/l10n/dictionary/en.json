@@ -1,0 +1,25 @@
+{
+  "messages": {
+    "components": {
+      "header": {
+        "home": "Home",
+        "example": "Example"
+      },
+      "signin": {
+        "email": "E-mail",
+        "password": "Password"
+      }
+    },
+    "pages": {
+      "example": {
+        "content": "<b>Example page</b><p>Example page in English</p>"
+      },
+      "home": {
+        "content": "<b>Home page</b><p>Home page in English</p>"
+      },
+      "signin": {
+        "header": "Sign in"
+      }
+    }
+  }
+}

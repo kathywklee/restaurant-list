@@ -1,0 +1,41 @@
+/* Typography
+-------------------------------------------------- */
+
+///
+$font-face-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica,
+  Arial, sans-serif;
+
+/// base font-face set for project, used in _core.scss
+$font-face: null;
+/// base font-face-hero set for project, used in heading-hero-r-style.scss
+$font-face-hero: null;
+
+/* /Typography
+-------------------------------------------------- */
+
+/* Animations
+-------------------------------------------------- */
+
+///
+$transition-timing: 0.15s;
+///
+$transition-easing: cubic-bezier(0.4, 1, 0.7, 1);
+
+/* /Animations
+-------------------------------------------------- */
+
+/* Device specific
+-------------------------------------------------- */
+
+///
+$ipad-height: 1024px;
+///
+$ipad-width: 768px;
+
+///
+$ipad-actual-height: 925px;
+///
+$ipad-actual-width: 670px;
+
+/* /Device specific
+-------------------------------------------------- */

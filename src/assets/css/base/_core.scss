@@ -1,0 +1,28 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--fz-n);
+
+  // Prevent font scaling in landscape
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-text-size-adjust: 100%;
+
+  // todo: IE scrollbars customizing
+}
+
+body {
+  font-family: $font-face, $font-face-fallback;
+  font-size: var(--fz-n);
+  font-weight: normal;
+  font-style: normal;
+  line-height: var(--lh-regular);
+
+  color: var(--c-text-regular);
+  background: var(--c-bg);
+
+  // todo: ::selection
+}
