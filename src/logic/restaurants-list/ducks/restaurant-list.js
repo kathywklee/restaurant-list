@@ -5,6 +5,7 @@ import get from 'lodash/get';
 // -------------------------------------------------------------------------------------------------
 
 export const RESTAURANT_LIST_REQUESTED = 'RESTAURANT_LIST_REQUESTED';
+export const RESTAURANT_LIST_STARTED = 'RESTAURANT_LIST_STARTED';
 export const RESTAURANT_LIST_SUCCEEDED = 'RESTAURANT_LIST_SUCCEEDED';
 export const RESTAURANT_LIST_FAILED = 'RESTAURANT_LIST_FAILED';
 
@@ -14,13 +15,19 @@ export const RESTAURANT_LIST_FAILED = 'RESTAURANT_LIST_FAILED';
 
 const initialState = {
   list: [],
+  meta: {},
+  aggregates: {},
   error: null,
-  isLoading: false,
+  isLoading: true,
 };
 
 export function restaurantListReducer(state = initialState, action) {
   switch (action.type) {
     case RESTAURANT_LIST_REQUESTED:
+      return {
+        ...state,
+      };
+    case RESTAURANT_LIST_STARTED:
       return {
         ...state,
         isLoading: true,
@@ -30,6 +37,8 @@ export function restaurantListReducer(state = initialState, action) {
         ...state,
         isLoading: false,
         list: action.payload.restaurantsList,
+        meta: action.payload.meta,
+        aggregates: action.payload.aggregates,
       };
     case RESTAURANT_LIST_FAILED:
       return {
@@ -47,17 +56,22 @@ export function restaurantListReducer(state = initialState, action) {
 // Event creators
 // -------------------------------------------------------------------------------------------------
 
-export const fetchRestaurantList = ({ restaurantSlug }) => {
+export const fetchRestaurantList = () => {
   return {
     type: RESTAURANT_LIST_REQUESTED,
-    payload: { restaurantSlug },
   };
 };
 
-export const fetchRestaurantListSucceeded = ({ restaurantsList }) => {
+export const fetchRestaurantListStarted = () => {
+  return {
+    type: RESTAURANT_LIST_STARTED,
+  };
+};
+
+export const fetchRestaurantListSucceeded = ({ restaurantsList, meta, aggregates }) => {
   return {
     type: RESTAURANT_LIST_SUCCEEDED,
-    payload: { restaurantsList },
+    payload: { restaurantsList, meta, aggregates },
   };
 };
 
@@ -72,7 +86,7 @@ export const fetchRestaurantListFailed = error => {
 // Selectors
 // -------------------------------------------------------------------------------------------------
 
-const rootSelector = state => get(state, 'restaurantsList', initialState);
+const rootSelector = state => get(state, 'restaurantList', initialState);
 
 export const restaurantsListSelector = state => rootSelector(state).list;
 export const restaurantsListErrorSelector = state => rootSelector(state).error;
