@@ -3,7 +3,7 @@
     "components": {
       "header": {
         "home": "Home",
-        "example": "Example"
+        "components": "Components"
       },
       "signin": {
         "email": "E-mail",
