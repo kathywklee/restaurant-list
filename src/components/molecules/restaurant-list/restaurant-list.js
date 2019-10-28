@@ -1,3 +1,5 @@
+import { Button } from '../../atoms/button';
+
 export const RestaurantList = ({
   isLoading,
   list,
@@ -8,6 +10,6 @@ export const RestaurantList = ({
     {console.log('isLoading', isLoading)}
     {console.log(list)}
     {isLoading ? <div>Is loading</div> : <div>Loaded</div>}
-    <button onClick={fetchList}>Load RL</button>
+    <Button onClick={fetchList}>Load RL</Button>
   </div>
 );

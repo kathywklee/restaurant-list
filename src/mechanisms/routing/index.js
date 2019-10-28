@@ -1,6 +1,6 @@
 import routes from './routes';
 
-export { HOME, EXAMPLE, SIGNIN } from './route-names';
+export { HOME, COMPONENTS, SIGNIN } from './route-names';
 
 const { Link, Router } = routes;
 

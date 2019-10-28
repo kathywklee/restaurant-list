@@ -7,9 +7,14 @@
   flex-flow: row nowrap;
   align-items: center;
 
-  padding: var(--space-n);
+  padding: var(--space-s) var(--space-n);
 
-  background: var(--c-shade-light);
+  background: var(--c-brand-primary-regular);
+  color: var(--c-text-inv-regular);
+}
+
+.header a {
+  color: var(--c-text-inv-regular);
 }
 
 /* /Header
@@ -20,6 +25,7 @@
 
 .logo {
   flex: 0;
+  line-height: var(--lh-compact);
 }
 
 /* /Logo

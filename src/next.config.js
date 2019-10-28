@@ -2,12 +2,6 @@ const path = require('path');
 const withSass = require('@zeit/next-sass');
 const { supportedLocales } = require('./mechanisms/l10n/config');
 
-const sassResources = [
-  path.resolve(__dirname, './assets/css/resources/_breakpoints.scss'),
-  path.resolve(__dirname, './assets/css/resources/_static.scss'),
-  path.resolve(__dirname, './assets/css/resources/_mixins.scss'),
-];
-
 const isProduction = process.env.NODE_ENV === 'production';
 const dictRegExp = new RegExp(`^./(${supportedLocales.join('|')})$`);
 
@@ -19,7 +13,7 @@ const nextConfig = {
   cssModules: true,
   cssLoaderOptions: {
     importLoaders: 2,
-    localIdentName: '__[hash:base64:4]',
+    localIdentName: '[local]__[hash:base64:4]',
   },
 
   // Will only be available on the server side
@@ -45,15 +39,6 @@ const nextConfig = {
     config.devServer.headers = { 'Access-Control-Allow-Origin': '*' };
     /* eslint-enable no-param-reassign */
 
-    config.module.rules.push({
-      enforce: 'pre',
-      test: /\.scss$/,
-      loader: 'sass-resources-loader',
-      options: {
-        resources: sassResources,
-      },
-    });
-
     config.plugins.push(
       // Used to narrow requiring scope when using dynamic imports, thus reducing
       // the resulting bundle size. Locales which we don't support are ignored
@@ -62,7 +47,7 @@ const nextConfig = {
       new webpack.ContextReplacementPlugin(/react-intl\/locale-data/, dictRegExp),
     );
 
-    // ALiases
+    // aliases
     config.resolve.alias['components'] = path.resolve(__dirname, 'components');
     config.resolve.alias['constants'] = path.resolve(__dirname, 'constants');
     config.resolve.alias['pages'] = path.resolve(__dirname, 'pages');

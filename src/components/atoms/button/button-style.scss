@@ -1,11 +1,15 @@
+/* common
+-------------------------------------------------- */
+
 .button {
   display: inline-block;
   vertical-align: middle;
 
-  height: calc(var(--lh-regular) * var(--fz-n) + var(--space-s) * 2 + 2px);
-  padding: var(--space-s) var(--space-l);
+  height: calc(var(--lh-loose) * var(--fz-n) + var(--space-m) * 2);
+  padding: calc(var(--space-m) - 1px) var(--space-l);
 
   border: 1px solid;
+  border-radius: 3px;
   box-shadow: none;
 
   font-size: var(--fz-n);
@@ -19,11 +23,11 @@
   appearance: none;
   user-select: none;
 
-  background: var(--c-brand-secondary);
-  color: var(--c-text-regular);
+  background: var(--c-brand-accent-regular);
+  color: var(--c-text-inv-regular);
 
-  @include hover() {
-    text-decoration: none; // for the links
+  &:hover {
+    text-decoration: none;
   }
 
   &:active {
@@ -32,3 +36,6 @@
     transform: translateY(1px);
   }
 }
+
+/* /common
+-------------------------------------------------- */
