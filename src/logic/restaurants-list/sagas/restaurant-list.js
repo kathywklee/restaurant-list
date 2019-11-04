@@ -1,4 +1,4 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put, select } from 'redux-saga/effects';
 import {
   RESTAURANT_LIST_REQUESTED,
   fetchRestaurantList,
@@ -7,23 +7,29 @@ import {
   fetchRestaurantListFailed,
 } from '../ducks/restaurant-list';
 
-import RestaurantListModel from '../ducks/restaurant-list-model';
+import {
+  RESTAURANT_LIST_SORTING_CHANGED,
+  restaurantSortingTypeSelector,
+} from '../../restaurant-sorting/ducks/restaurant-sorting-reducer';
+
+import RestaurantListModel from '../models/restaurant-list-model';
 
 import networkInterfaceFactory from '../../../mechanisms/network/server-network-interface-factory';
 
 export function* restaurantsListFetchHandler(action) {
   try {
     const network = networkInterfaceFactory();
-    console.log('SAGA!!!');
+
+    const sortingType = yield select(restaurantSortingTypeSelector);
+
     yield put(fetchRestaurantListStarted());
-    const restaurantsListResponse = yield network.Restaurants.fetchList();
+    const restaurantsListResponse = yield network.Restaurants.fetchList({ sortingType });
 
     const restaurantsList = RestaurantListModel.getDataFromResponse(restaurantsListResponse);
     const meta = RestaurantListModel.getMetaFromResponce(restaurantsListResponse);
     const aggregates = RestaurantListModel.getAggregatesFromResponce(restaurantsListResponse);
 
     yield put(fetchRestaurantListSucceeded({ restaurantsList, meta, aggregates }));
-    console.log('SAGA ENDED!!!');
   } catch (e) {
     yield put(fetchRestaurantListFailed({ e }));
   }
@@ -31,4 +37,5 @@ export function* restaurantsListFetchHandler(action) {
 
 export function* restaurantsListSaga() {
   yield takeEvery(RESTAURANT_LIST_REQUESTED, restaurantsListFetchHandler);
+  yield takeEvery(RESTAURANT_LIST_SORTING_CHANGED, restaurantsListFetchHandler);
 }

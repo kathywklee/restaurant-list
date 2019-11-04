@@ -18,16 +18,11 @@ const nextConfig = {
 
   // Will only be available on the server side
   serverRuntimeConfig: {
-    secret: 'showmethemoney',
+    secret: '12345',
   },
   // Will be available on both server and client
   publicRuntimeConfig: {
     isProduction,
-    apollo: {
-      uri: 'http://localhost:4000',
-      // IMPORTANT!!! DON'T FORGET TO CHANGE credentials TO 'include'
-      credentials: 'include',
-    },
   },
 
   // webpack

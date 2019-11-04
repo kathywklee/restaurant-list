@@ -2,12 +2,13 @@
   "messages": {
     "components": {
       "header": {
-        "home": "DE Home",
+        "home": "DE Restaurants",
         "components": "DE Components"
       },
-      "signin": {
-        "email": "E-mail",
-        "password": "Password"
+      "restaurantSorting": {
+        "noSorting": "No sorting",
+        "alphabetically": "Alphabetically",
+        "byMinimumOrderValue": "By minimum order value"
       }
     },
     "pages": {
@@ -16,9 +17,6 @@
       },
       "home": {
         "content": "<b>DE Home page</b><p>Home page in Deutsch</p>"
-      },
-      "signin": {
-        "header": "Sign in"
       }
     }
   }

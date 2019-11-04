@@ -16,9 +16,6 @@ const Header = props => (
       <Link route={HOME}>
         <a className={styles.nav__item}>{props.translate('home')}</a>
       </Link>
-      <Link route={COMPONENTS}>
-        <a className={styles.nav__item}>{props.translate('components')}</a>
-      </Link>
     </nav>
   </header>
 );
