@@ -27,9 +27,9 @@ export const restaurantList = {
     {
       id: '123',
       slug: 'pizza-max',
-      restaurantLogo: '',
+      restaurantLogo: 'https://uilogos.co/img/logomark/circle.png',
       name: 'Pizza Max',
-      cuisines: ['sushi'],
+      cuisines: ['sushi', 'japanise'],
       shipping: {
         type: ['delivery', 'pickup'],
         estimatedTime: 30,
@@ -50,7 +50,7 @@ export const restaurantList = {
     {
       id: '124',
       slug: 'mc-donalds',
-      restaurantLogo: '',
+      restaurantLogo: 'https://uilogos.co/img/logomark/treva.png',
       name: 'Mc. Donalds',
       cuisines: ['burger'],
       shipping: {

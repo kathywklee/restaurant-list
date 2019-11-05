@@ -2,23 +2,17 @@
   "messages": {
     "components": {
       "header": {
-        "home": "NL Home",
-        "components": "NL Components"
+        "home": "NL Restaurants"
       },
-      "signin": {
-        "email": "E-mail",
-        "password": "Password"
+      "restaurantSorting": {
+        "noSorting": "No sorting",
+        "alphabetically": "Alphabetically",
+        "byMinimumOrderValue": "By minimum order value"
       }
     },
     "pages": {
-      "example": {
-        "content": "<b>NL Example page</b><p>Example page in Nederlands</p>"
-      },
       "home": {
         "content": "<b>NL Home page</b><p>Home page in Nederlands</p>"
-      },
-      "signin": {
-        "header": "Sign in"
       }
     }
   }

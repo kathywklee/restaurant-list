@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {
   restaurantsListSelector,
   restaurantsListIsLoadingSelector,
-  fetchRestaurantList,
 } from '../../../logic/restaurants-list/ducks/restaurant-list';
 
 import { RestaurantList } from './restaurant-list';
@@ -13,9 +12,7 @@ const mapStateToProps = state => ({
   list: restaurantsListSelector(state),
 });
 
-const mapDispatchToProps = {
-  fetchList: fetchRestaurantList,
-};
+const mapDispatchToProps = {};
 
 export const RestaurantListEnhanced = connect(
   mapStateToProps,
