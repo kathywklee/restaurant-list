@@ -1,13 +1,8 @@
 import React from 'react';
 
-import { Select } from '../../atoms/select';
+import { Heading } from '../../atoms/heading';
 
-const createSortingSelectOptions = translate => (sortingTypes, translationMap) =>
-  sortingTypes.map(sortingType => ({
-    value: sortingType,
-    text: translate(translationMap[sortingType]),
-    disabled: false,
-  }));
+import styles from './restaurant-sorting-style.scss';
 
 export const RestaurantSorting = props => {
   const {
@@ -20,15 +15,25 @@ export const RestaurantSorting = props => {
   } = props;
 
   const onChangeSorting = event => sortRestaurantList(event.target.value);
-  const sortingSelectOptions = createSortingSelectOptions(translate);
 
   return (
-    <Select
-      disabled={isLoading}
-      label="Select label"
-      onChange={onChangeSorting}
-      value={selectedSortingType}
-      options={sortingSelectOptions(sortingTypes, translationMap)}
-    />
+    <div>
+      <Heading level={5} align="left">
+        {translate('label')}
+      </Heading>
+      {sortingTypes.map(sortingType => (
+        <label key={sortingType} className={styles['restaurant-sorting']}>
+          <input
+            disabled={isLoading}
+            type="radio"
+            name="restaurantSorting"
+            value={sortingType}
+            onChange={onChangeSorting}
+            checked={selectedSortingType === sortingType}
+          />{' '}
+          {translate(translationMap[sortingType])}
+        </label>
+      ))}
+    </div>
   );
 };

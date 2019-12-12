@@ -2,19 +2,16 @@
   "messages": {
     "components": {
       "header": {
-        "home": "DE Restaurants",
-        "components": "DE Components"
+        "home": "DE Restaurants"
       },
       "restaurantSorting": {
+        "label": "Sort by",
         "noSorting": "No sorting",
         "alphabetically": "Alphabetically",
         "byMinimumOrderValue": "By minimum order value"
       }
     },
     "pages": {
-      "example": {
-        "content": "<b>DE Example page</b><p>Example page in Deutsch</p>"
-      },
       "home": {
         "content": "<b>DE Home page</b><p>Home page in Deutsch</p>"
       }

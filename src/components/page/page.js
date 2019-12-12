@@ -7,7 +7,7 @@ const Page = ({ children }) => {
     <div>
       <Header />
 
-      <main className={styles.content}>{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   );
 };

@@ -5,6 +5,11 @@ const { supportedLocales } = require('./mechanisms/l10n/config');
 const isProduction = process.env.NODE_ENV === 'production';
 const dictRegExp = new RegExp(`^./(${supportedLocales.join('|')})$`);
 
+const sassResources = [
+  path.resolve(__dirname, './assets/css/resources/_breakpoints.scss'),
+  path.resolve(__dirname, './assets/css/resources/_mixins.scss'),
+];
+
 const nextConfig = {
   // next env
   distDir: '../build/.next',
@@ -12,8 +17,8 @@ const nextConfig = {
   // css-loader
   cssModules: true,
   cssLoaderOptions: {
-    importLoaders: 2,
-    localIdentName: '[local]__[hash:base64:4]',
+    importLoaders: 3,
+    localIdentName: '[local]_[hash:base64:5]',
   },
 
   // Will only be available on the server side
@@ -41,6 +46,15 @@ const nextConfig = {
       // More info: https://iamakulov.com/notes/webpack-contextreplacementplugin/
       new webpack.ContextReplacementPlugin(/react-intl\/locale-data/, dictRegExp),
     );
+
+    config.module.rules.push({
+      enforce: 'pre',
+      test: /\.scss$/,
+      loader: 'sass-resources-loader',
+      options: {
+        resources: sassResources,
+      },
+    });
 
     // aliases
     config.resolve.alias['components'] = path.resolve(__dirname, 'components');

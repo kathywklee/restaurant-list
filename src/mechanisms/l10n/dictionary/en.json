@@ -2,10 +2,10 @@
   "messages": {
     "components": {
       "header": {
-        "home": "Restaurants",
-        "components": "Components"
+        "home": "Restaurants"
       },
       "restaurantSorting": {
+        "label": "Sort by",
         "noSorting": "No sorting",
         "alphabetically": "Alphabetically",
         "byMinimumOrderValue": "By minimum order value"
