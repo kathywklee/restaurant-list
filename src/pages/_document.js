@@ -41,7 +41,7 @@ export default class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <body onTouchStart="">
+        <body onTouchStart="" id="root">
           <Main />
           <NextScript />
         </body>
