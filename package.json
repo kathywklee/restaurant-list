@@ -1,7 +1,7 @@
 {
-  "name": "version3-frontend-prototype",
+  "name": "consumer-web-prototype",
   "version": "0.0.1",
-  "description": "A prototype of Version 3 customer-facing frontend for Takeaway.com.",
+  "description": "A prototype of the customer-facing web application for Just Eat Takeaway.com.",
   "main": "./src/server/index.js",
   "scripts": {
     "build-dev-server": "npm run clean && webpack --config ./tools/build/webpack.config.js",
@@ -11,7 +11,7 @@
     "start": "cross-env NODE_ENV=production node ./build/server.js",
     "clean": "rimraf ./build",
     "lint": "npm run lint:js && npm run lint:styles",
-    "lint:js": "eslint src/**/*.{js,jsx}",
+    "lint:js": "eslint --ext .js --ext .jsx src/",
     "lint:styles": "stylelint src/**/*.{css,scss,sass}",
     "fix": "prettier --write src/**/*.{js,jsx,json,css,scss,sass,md,yml,yaml}"
   },
@@ -47,7 +47,8 @@
     "rules": {
       "prettier/prettier": [
         "error"
-      ]
+      ],
+      "import/prefer-default-export": 0
     },
     "env": {
       "browser": true,
@@ -107,7 +108,7 @@
     "@babel/preset-env": "7.4.5",
     "babel-eslint": "10.0.1",
     "clsx": "1.0.4",
-    "eslint": "5.3.0",
+    "eslint": "5.3",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "4.3.0",
     "eslint-plugin-import": "2.14.0",
@@ -125,12 +126,7 @@
     "webpack-cli": "3.3.2",
     "webpack-node-externals": "1.7.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@bitbucket.org/banderror/version3-frontend-prototype.git"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/banderror/version3-frontend-prototype#readme"
+  "license": "ISC"
 }
