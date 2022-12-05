@@ -59,13 +59,13 @@ Story
 
 1. Display additional information in restaurant card
 
-- Minimum order value (MOV)
+- Minimum order value, formatted as currency
 - Average ratings
 
 2. Enhance sorting functionality
 
-- Average rating (DESC)
-- Minimum order value (ASC)
+- Average rating (descending order)
+- Minimum order value (ascending order)
 
 Bug found
 
